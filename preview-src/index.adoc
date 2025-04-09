@@ -7,6 +7,7 @@ Author Name
 //:page-role: -toc
 :page-pagination:
 :description: A "preview" site for the UI.
+:experimental:
 
 [.float-group]
 --
@@ -210,6 +211,8 @@ At ornatus splendide sed, phaedrum omittantur usu an, vix an noster voluptatibus
 
 * [ ] todo
 * [x] done!
+
+Showing a gear icon: icon:gear[]
 
 Vis veri graeci legimus ad.
 

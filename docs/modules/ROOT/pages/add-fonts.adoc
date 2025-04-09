@@ -39,7 +39,8 @@ Here are the steps involved.
 }
 ----
 +
-The Gulp build recognizes the `~` URL prefix and copies the font from the npm package to the build folder (and hence bundle).
+The Gulp build recognizes the `~` URL prefix and copies the font from the npm package to the build folder (and hence bundle). +
+In order for Gulp copying the files and rewrite the URLs for the final CSS, edit `gulp.d/talks/build.js` in section _postcssUrl_ and add a block for the new package added.
 +
 You must define one @font-face for each font weight and style combination (e.g., `font-weight: 500` + `font-style: italic`) from the font that you want to use in your stylesheet.
 
