@@ -7,8 +7,8 @@ pages:
   script:
     - npm ci
     - npx gulp bundle
-    - mkdir -p public/ui
-    - cp build/ui-bundle.zip public/ui/ui-bundle.zip
+    - mkdir -p public/ui/${CI_COMMIT_TAG:-latest}
+    - cp build/ui-bundle.zip public/ui/${CI_COMMIT_TAG:-latest}/ui-bundle.zip
   artifacts:
     paths:
       - public
