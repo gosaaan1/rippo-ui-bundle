@@ -99,7 +99,9 @@ module.exports = (src, dest, preview) => () => {
     vfs.src('helpers/*.js', opts),
     vfs.src('layouts/*.hbs', opts),
     vfs.src('partials/*.hbs', opts),
-    vfs.src('static/**/*[!~]', { ...opts, base: ospath.join(src, 'static'), dot: true })
+    // encoding: false == avoid any transcoding, and effectively just pass around raw binary data.
+    // if omitted, image files such as .png will be transcoded and become useless
+    vfs.src('static/**/*[!~]', { ...opts, base: ospath.join(src, 'static'), dot: true, encoding: false })
   ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' }))
 }
 
