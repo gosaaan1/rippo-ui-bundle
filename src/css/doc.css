@@ -490,7 +490,10 @@
   vertical-align: middle;
 }
 
+/* Expected complex :not() pseudo-class notation  selector-not-notation
 .doc .image:not(.left):not(.right) > img {
+*/
+.doc .image:not(.left, .right) > img {
   margin-top: -0.2em;
 }
 
