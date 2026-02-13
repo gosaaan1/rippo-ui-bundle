@@ -47,7 +47,7 @@ module.exports = (src, dest, preview) => () => {
         },
       },
     ]),
-    postcssVar({ preserve: preview }),
+    postcssVar({ preserve: true }),
     // NOTE to make vars.css available to all top-level stylesheets, use the next line in place of the previous one
     //postcssVar({ importFrom: path.join(src, 'css', 'vars.css'), preserve: preview }),
     preview ? postcssCalc : () => {}, // cssnano already applies postcssCalc
@@ -76,7 +76,24 @@ module.exports = (src, dest, preview) => () => {
     //vfs.src(require.resolve('<package-name-or-require-path>'), opts).pipe(concat('js/vendor/<library-name>.js')),
     vfs
       .src(['css/site.css', 'css/vendor/*.css'], { ...opts, sourcemaps })
-      .pipe(postcss((file) => ({ plugins: postcssPlugins, options: { file } }))),
+      .pipe(postcss((file) => ({ plugins: postcssPlugins, options: { file } })))
+      .pipe(
+        map((file, enc, next) => {
+          if (file.relative === 'css/site.css') {
+            const overridePath = path.join(src, 'css', 'zz-productdock.css')
+            if (fs.pathExistsSync(overridePath)) {
+              const overrides = fs.readFileSync(overridePath, 'utf8')
+              file.contents = Buffer.concat([
+                file.contents,
+                Buffer.from('\n\n/* ===== ProductDock overrides (zz-productdock.css) ===== */\n'),
+                Buffer.from(overrides),
+                Buffer.from('\n'),
+              ])
+            }
+          }
+          next(null, file)
+        })
+      ),
     vfs.src('font/*.{ttf,woff*(2)}', opts),
     vfs.src('img/**/*.{gif,ico,jpg,png,svg}', opts).pipe(
       preview

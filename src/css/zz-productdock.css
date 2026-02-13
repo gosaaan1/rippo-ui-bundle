@@ -1,0 +1,70 @@
+/* ProductDock overrides (keep all custom changes here) */
+
+/* Širi “klikabilni” razmak između nav-a i sadržaja */
+:root {
+  --nav-resizer-hit: 12px;   /* koliko je lako “ubosti” mišem */
+  --nav-resizer-line: 2px;   /* vizuelna linija */
+}
+/* Resizer element koji JS ubacuje */
+.nav-resizer {
+  position: fixed;
+  top: var(--navbar-height);
+  height: calc(100vh - var(--navbar-height));
+  width: var(--nav-resizer-hit);
+  cursor: col-resize;
+  z-index: calc(var(--z-index-nav) + 1);
+  user-select: none;
+}
+
+.nav-resizer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc((var(--nav-resizer-hit) - var(--nav-resizer-line)) / 2);
+  width: var(--nav-resizer-line);
+  background: var(--nav-border-color);
+  opacity: 0.9;
+}
+/* malo “feedback” na hover */
+.nav-resizer:hover::after {
+  opacity: 1;
+}
+/* dok se vuče */
+html.is-resizing-nav {
+  cursor: col-resize;
+}
+
+html.is-resizing-nav * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+/* ProductDock: draggable resizer between nav and content */
+.nav-container {
+  position: relative;
+}
+
+.pd-nav-resizer {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 12px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 10;
+}
+/* Malo “vidljivija” linija u sredini resizer-a */
+.pd-nav-resizer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.12);
+}
+/* Dok vučeš, isključi selekciju teksta */
+html.pd-resizing-nav,
+html.pd-resizing-nav * {
+  user-select: none;
+}

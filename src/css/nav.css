@@ -287,3 +287,19 @@
   font-weight: var(--body-font-weight-bold);
   opacity: 1;
 }
+
+@media screen and (min-width: 1600px) {
+  :root {
+    --nav-width: 480px;
+  }
+}
+/* ProductDock: force sidebar width (desktop only) */
+@media screen and (min-width: 1024px) {
+  .nav-container,
+  .nav,
+  .nav-panel-menu,
+  .nav-panel-explore {
+    width: var(--nav-width);
+    flex: 0 0 var(--nav-width);
+  }
+}
