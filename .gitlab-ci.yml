@@ -1,55 +1,14 @@
-image: node:10.14.2-stretch
-stages: [setup, verify, deploy]
-install:
-  stage: setup
-  cache:
-    paths:
-    - .cache/npm
-  script:
-  - &npm_install
-    npm install --quiet --no-progress --cache=.cache/npm
-lint:
-  stage: verify
-  cache: &pull_cache
-    policy: pull
-    paths:
-    - .cache/npm
-  script:
-  - *npm_install
-  - node_modules/.bin/gulp lint
-bundle-stable:
-  stage: deploy
-  only:
-  - master@antora/antora-ui-default
-  cache: *pull_cache
-  script:
-  - *npm_install
-  - node_modules/.bin/gulp bundle
-  artifacts:
-    paths:
-    - build/ui-bundle.zip
-bundle-dev:
-  stage: deploy
-  except:
-  - master
-  cache: *pull_cache
-  script:
-  - *npm_install
-  - node_modules/.bin/gulp bundle
-  artifacts:
-    expire_in: 1 day # unless marked as keep from job page
-    paths:
-    - build/ui-bundle.zip
+stages:
+  - pages
+
 pages:
-  stage: deploy
-  only:
-  - master@antora/antora-ui-default
-  cache: *pull_cache
+  stage: pages
+  image: node:20
   script:
-  - *npm_install
-  - node_modules/.bin/gulp preview:build
-  # FIXME figure out a way to avoid copying these files to preview site
-  - rm -rf public/_/{helpers,layouts,partials}
+    - npm ci
+    - npx gulp bundle
+    - mkdir -p public/ui/${CI_COMMIT_TAG:-latest}
+    - cp build/ui-bundle.zip public/ui/${CI_COMMIT_TAG:-latest}/ui-bundle.zip
   artifacts:
     paths:
-    - public
+      - public
