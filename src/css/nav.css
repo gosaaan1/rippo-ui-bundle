@@ -99,7 +99,7 @@
 }
 
 .nav-menu-toggle {
-  background: transparent url(../img/octicons-16.svg#view-unfold) no-repeat center / 100% 100%;
+  background: transparent url("../img/octicons-16.svg#view-unfold") no-repeat center / 100% 100%;
   border: none;
   float: right;
   height: 1em;
@@ -114,7 +114,7 @@
 }
 
 .nav-menu-toggle.is-active {
-  background-image: url(../img/octicons-16.svg#view-fold);
+  background-image: url("../img/octicons-16.svg#view-fold");
 }
 
 .nav-panel-menu.is-active:hover .nav-menu-toggle {
@@ -159,7 +159,7 @@
 }
 
 .nav-item-toggle {
-  background: transparent url(../img/caret.svg) no-repeat center / 50%;
+  background: transparent url("../img/caret.svg") no-repeat center / 50%;
   border: none;
   outline: none;
   line-height: inherit;
@@ -220,7 +220,7 @@
 
 .nav-panel-explore .context .version::after {
   content: "";
-  background: url(../img/chevron.svg) no-repeat center right / auto 100%;
+  background: url("../img/chevron.svg") no-repeat center right / auto 100%;
   width: 1.25em;
   height: 0.75em;
 }
