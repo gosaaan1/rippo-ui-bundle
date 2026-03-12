@@ -1,6 +1,7 @@
 ;(function () {
   'use strict'
 
+  var IE = /*@cc_on!@*/false || !!document.documentMode
   var SECT_CLASS_RX = /^sect(\d)$/
 
   var navContainer = document.querySelector('.nav-container')
@@ -161,7 +162,19 @@
     var effectiveHeight = rect.height
     var navStyle = window.getComputedStyle(nav)
     if (navStyle.position === 'sticky') effectiveHeight -= rect.top - parseFloat(navStyle.top)
-    panel.scrollTop = Math.max(0, (el.getBoundingClientRect().height - effectiveHeight) * 0.5 + el.offsetTop)
+    var newValue = Math.max(0, (el.getBoundingClientRect().height - effectiveHeight) * 0.5 + el.offsetTop)
+    if (panel.scrollTop === newValue) return
+    var styles = window.getComputedStyle(document.documentElement)
+    if (IE || 'MozAppearance' in styles || styles.scrollBehavior === 'auto') {
+      panel.scrollTop = newValue
+      return
+    }
+    var yieldToScrolling = function (lastScrollY) {
+      window.pageYOffset === lastScrollY
+        ? (panel.scrollTop = newValue)
+        : window.requestAnimationFrame(yieldToScrolling.bind(null, window.pageYOffset))
+    }
+    setTimeout(yieldToScrolling.bind(null, window.pageYOffset), 100)
   }
 
   function find (from, selector) {
