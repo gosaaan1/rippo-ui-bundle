@@ -43,7 +43,18 @@ module.exports = (src, dest, preview) => () => {
           const basename = ospath.basename(abspath)
           const destpath = ospath.join(dest, 'font', basename)
           if (!fs.pathExistsSync(destpath)) fs.copySync(abspath, destpath)
-          return path.join('..', 'font', basename)
+          return path.join('..', 'font', basename) + asset.search + asset.hash
+        },
+      },
+      {
+        filter: '**/~@fortawesome/fontawesome-free/webfonts/*',
+        url: (asset) => {
+          const relpath = asset.pathname.slice(1)
+          const abspath = require.resolve(relpath)
+          const basename = ospath.basename(abspath)
+          const destpath = ospath.join(dest, 'font', basename)
+          if (!fs.pathExistsSync(destpath)) fs.copySync(abspath, destpath)
+          return path.join('..', 'font', basename) + asset.search + asset.hash
         },
       },
     ]),
