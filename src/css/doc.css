@@ -397,11 +397,11 @@
 
 .doc .admonitionblock td.icon {
   font-size: calc(15 / var(--rem-base) * 1rem);
-  left: 0;
   line-height: 1;
   padding: 0;
   position: absolute;
-  top: 0;
+  inset-inline-start: 0;
+  inset-block-start: 0;
   transform: translate(-0.5rem, -50%);
 }
 
@@ -717,8 +717,8 @@
   border-left-color: currentColor;
   border-width: 0.3em 0 0.3em 0.5em;
   position: absolute;
-  top: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
-  left: -1rem;
+  inset-block-start: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
+  inset-inline-start: -1rem;
   transform: translateX(15%);
 }
 
@@ -733,8 +733,8 @@
   width: 1rem;
   height: 1em;
   position: absolute;
-  top: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
-  left: -1rem;
+  inset-block-start: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
+  inset-inline-start: -1rem;
 }
 
 .doc details.result {
@@ -814,8 +814,8 @@
   display: flex;
   visibility: hidden;
   position: absolute;
-  top: 0.25rem;
-  right: 0.5rem;
+  inset-block-start: 0.25rem;
+  inset-inline-end: 0.5rem;
   color: var(--pre-annotation-font-color);
   font-family: var(--body-font-family);
   font-size: calc(13 / var(--rem-base) * 1rem);
@@ -887,7 +887,7 @@
 .doc .source-toolbox .copy-toast::after {
   content: "";
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   width: 1em;
   height: 1em;
   border: 0.55em solid transparent;
