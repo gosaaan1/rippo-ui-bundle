@@ -1,0 +1,162 @@
+/* Rippo カスタムスタイル ---------------------------------------- */
+
+:root {
+  --rippo-face-color: #2c3e50;
+  --rippo-ripple-main: #7bb8d9;
+  --rippo-cheek: #f4b8b8;
+  --rippo-mood-standard: #7bb8d9;
+  --rippo-mood-excited: #5a9bc4;
+  --rippo-mood-focused: #7a8b9c;
+  --rippo-mood-idea: #f4d35e;
+  --rippo-mood-done: #6fb58c;
+  --rippo-mood-proposing: #4fb3a9;
+  --rippo-mood-confused: #a894c4;
+  --rippo-mood-attention: #e89556;
+  --rippo-mood-sorry: #d99bad;
+  --rippo-mood-sleepy: #b8d4e3;
+}
+
+/* アバター ------------------------------------------------------ */
+
+.rippo-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  color: var(--rippo-face-color);
+  flex-shrink: 0;
+}
+
+.rippo-avatar--large {
+  width: 6rem;
+  height: 6rem;
+}
+
+.rippo-avatar--small {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.rippo-avatar-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 投稿ヘッダー -------------------------------------------------- */
+
+.rippo-post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel-background);
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--rippo-mood-standard);
+}
+
+.rippo-post {
+  --rippo-post-accent: var(--rippo-mood-standard);
+}
+
+.rippo-post-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9em;
+}
+
+.rippo-post-date {
+  color: var(--color-gray-70);
+  font-variant-numeric: tabular-nums;
+}
+
+.rippo-mood-label {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #fff;
+  background: var(--rippo-mood-standard);
+  align-self: flex-start;
+}
+
+.rippo-mood-label--standard {
+  background: var(--rippo-mood-standard);
+}
+
+.rippo-mood-label--excited {
+  background: var(--rippo-mood-excited);
+}
+
+.rippo-mood-label--focused {
+  background: var(--rippo-mood-focused);
+}
+
+.rippo-mood-label--idea {
+  background: var(--rippo-mood-idea);
+  color: #5b4a10;
+}
+
+.rippo-mood-label--done {
+  background: var(--rippo-mood-done);
+}
+
+.rippo-mood-label--proposing {
+  background: var(--rippo-mood-proposing);
+}
+
+.rippo-mood-label--confused {
+  background: var(--rippo-mood-confused);
+}
+
+.rippo-mood-label--attention {
+  background: var(--rippo-mood-attention);
+}
+
+.rippo-mood-label--sorry {
+  background: var(--rippo-mood-sorry);
+}
+
+.rippo-mood-label--sleepy {
+  background: var(--rippo-mood-sleepy);
+  color: #33525e;
+}
+
+/* 投稿フッター（タグ） ------------------------------------------ */
+
+.rippo-post-footer {
+  margin: 2rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--panel-border-color);
+}
+
+.rippo-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rippo-tag {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 1rem;
+  background: var(--panel-background);
+  color: var(--color-jet-30);
+  font-size: 0.85em;
+  border: 1px solid var(--panel-border-color);
+}
+
+/* ホーム / タイムライン / タグページの余白調整 ------------------ */
+
+.rippo-home .doc,
+.rippo-timeline .doc,
+.rippo-tags .doc {
+  max-width: var(--doc-max-width);
+}

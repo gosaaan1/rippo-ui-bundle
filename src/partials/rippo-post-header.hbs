@@ -1,0 +1,11 @@
+<header class="rippo-post-header">
+{{> rippo-avatar mood=page.attributes.mood size='large'}}
+<div class="rippo-post-meta">
+{{#if page.attributes.date}}
+<time class="rippo-post-date" datetime="{{page.attributes.date}}">{{page.attributes.date}}</time>
+{{/if}}
+{{#with page.attributes.mood}}
+<span class="rippo-mood-label rippo-mood-label--{{this}}">{{mood-label this}}</span>
+{{/with}}
+</div>
+</header>

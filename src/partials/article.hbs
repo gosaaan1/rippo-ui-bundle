@@ -1,7 +1,13 @@
-<article class="doc">
+<article class="doc{{#if (eq (or page.attributes.role page.role) 'post')}} rippo-post{{/if}}">
+{{#if (eq (or page.attributes.role page.role) 'post')}}
+{{> rippo-post-header}}
+{{/if}}
 {{#with page.title}}
 <h1 class="page">{{{this}}}</h1>
 {{/with}}
 {{{page.contents}}}
+{{#if (eq (or page.attributes.role page.role) 'post')}}
+{{> rippo-post-footer}}
+{{/if}}
 {{> pagination}}
 </article>

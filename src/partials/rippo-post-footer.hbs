@@ -1,0 +1,9 @@
+{{#if page.attributes.tags}}
+<footer class="rippo-post-footer">
+<ul class="rippo-tags">
+{{#each (split-tags page.attributes.tags)}}
+<li class="rippo-tag">#{{this}}</li>
+{{/each}}
+</ul>
+</footer>
+{{/if}}
