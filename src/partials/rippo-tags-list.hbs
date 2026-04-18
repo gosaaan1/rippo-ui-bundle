@@ -1,0 +1,10 @@
+{{#with (lookup page.attributes 'rippo-tags')}}
+<section class="rippo-tag-groups">
+{{#each this}}
+<section class="rippo-tag-group" id="tag-{{name}}">
+<h2 class="rippo-tag-group-label">#{{name}} <span class="rippo-tag-count">({{count}}件)</span></h2>
+{{> rippo-post-cards posts=posts}}
+</section>
+{{/each}}
+</section>
+{{/with}}

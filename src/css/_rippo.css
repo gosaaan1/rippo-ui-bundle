@@ -160,3 +160,154 @@
 .rippo-tags .doc {
   max-width: var(--doc-max-width);
 }
+
+/* 投稿カードリスト ---------------------------------------------- */
+
+.rippo-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rippo-post-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-white);
+  border: 1px solid var(--panel-border-color);
+  border-radius: 0.5rem;
+  border-left-width: 4px;
+  border-left-color: var(--rippo-mood-standard);
+}
+
+.rippo-post-card--excited {
+  border-left-color: var(--rippo-mood-excited);
+}
+
+.rippo-post-card--focused {
+  border-left-color: var(--rippo-mood-focused);
+}
+
+.rippo-post-card--idea {
+  border-left-color: var(--rippo-mood-idea);
+}
+
+.rippo-post-card--done {
+  border-left-color: var(--rippo-mood-done);
+}
+
+.rippo-post-card--proposing {
+  border-left-color: var(--rippo-mood-proposing);
+}
+
+.rippo-post-card--confused {
+  border-left-color: var(--rippo-mood-confused);
+}
+
+.rippo-post-card--attention {
+  border-left-color: var(--rippo-mood-attention);
+}
+
+.rippo-post-card--sorry {
+  border-left-color: var(--rippo-mood-sorry);
+}
+
+.rippo-post-card--sleepy {
+  border-left-color: var(--rippo-mood-sleepy);
+}
+
+.rippo-post-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.rippo-post-card-title {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1.05em;
+  text-decoration: none;
+  color: var(--heading-font-color);
+  line-height: 1.4;
+}
+
+.rippo-post-card-title:hover {
+  color: var(--link-font-color);
+}
+
+.rippo-post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 0.85em;
+  color: var(--color-gray-70);
+  font-variant-numeric: tabular-nums;
+}
+
+.rippo-post-card-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.rippo-post-card-tags .rippo-tag {
+  font-size: 0.8em;
+  padding: 0.1rem 0.5rem;
+}
+
+/* タイムラインの月セクション ------------------------------------ */
+
+.rippo-timeline-list {
+  margin-top: 2rem;
+}
+
+.rippo-timeline-month {
+  margin-top: 2rem;
+}
+
+.rippo-timeline-month-label,
+.rippo-tag-group-label {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--heading-font-color);
+  border-bottom: 2px solid var(--panel-border-color);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.rippo-month-count,
+.rippo-tag-count {
+  font-size: 0.85em;
+  color: var(--color-gray-70);
+  font-weight: 400;
+}
+
+/* タグページ ---------------------------------------------------- */
+
+.rippo-tag-groups {
+  margin-top: 2rem;
+}
+
+.rippo-tag-group {
+  margin-top: 2rem;
+}
+
+/* ホームの最近のつぶやき ---------------------------------------- */
+
+.rippo-recent {
+  margin-top: 2.5rem;
+}
+
+.rippo-recent-heading {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--heading-font-color);
+  margin: 0 0 0.5rem;
+}

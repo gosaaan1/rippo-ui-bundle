@@ -1,0 +1,6 @@
+{{#with (lookup page.attributes 'rippo-recent')}}
+<section class="rippo-recent">
+<h2 class="rippo-recent-heading">さいきんのつぶやき</h2>
+{{> rippo-post-cards posts=this}}
+</section>
+{{/with}}

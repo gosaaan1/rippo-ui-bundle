@@ -1,0 +1,21 @@
+<ul class="rippo-post-list">
+{{#each posts}}
+<li class="rippo-post-card rippo-post-card--{{mood}}">
+{{> rippo-avatar mood=mood size='small'}}
+<div class="rippo-post-card-body">
+<a href="{{relativize url}}" class="rippo-post-card-title">{{title}}</a>
+<div class="rippo-post-card-meta">
+{{#if date}}<time datetime="{{date}}">{{date}}</time>{{/if}}
+<span class="rippo-mood-label rippo-mood-label--{{mood}}">{{mood-label mood}}</span>
+</div>
+{{#if tags.length}}
+<ul class="rippo-post-card-tags">
+{{#each tags}}
+<li class="rippo-tag">#{{this}}</li>
+{{/each}}
+</ul>
+{{/if}}
+</div>
+</li>
+{{/each}}
+</ul>

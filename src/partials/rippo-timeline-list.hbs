@@ -1,0 +1,10 @@
+{{#with (lookup page.attributes 'rippo-months')}}
+<section class="rippo-timeline-list">
+{{#each this}}
+<section class="rippo-timeline-month" id="month-{{key}}">
+<h2 class="rippo-timeline-month-label">{{label}} <span class="rippo-month-count">({{count}}件)</span></h2>
+{{> rippo-post-cards posts=posts}}
+</section>
+{{/each}}
+</section>
+{{/with}}
