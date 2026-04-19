@@ -24,8 +24,8 @@
   justify-content: center;
   width: 4rem;
   height: 4rem;
-  color: var(--rippo-face-color);
   flex-shrink: 0;
+  --rippo-avatar-mood-color: var(--rippo-mood-standard);
 }
 
 .rippo-avatar--large {
@@ -38,11 +38,23 @@
   height: 2.5rem;
 }
 
-.rippo-avatar-svg {
+.rippo-avatar-img {
   width: 100%;
   height: 100%;
   display: block;
+  filter: drop-shadow(0 0 6px var(--rippo-avatar-mood-color));
 }
+
+.rippo-avatar--standard { --rippo-avatar-mood-color: var(--rippo-mood-standard); }
+.rippo-avatar--excited { --rippo-avatar-mood-color: var(--rippo-mood-excited); }
+.rippo-avatar--focused { --rippo-avatar-mood-color: var(--rippo-mood-focused); }
+.rippo-avatar--idea { --rippo-avatar-mood-color: var(--rippo-mood-idea); }
+.rippo-avatar--done { --rippo-avatar-mood-color: var(--rippo-mood-done); }
+.rippo-avatar--proposing { --rippo-avatar-mood-color: var(--rippo-mood-proposing); }
+.rippo-avatar--confused { --rippo-avatar-mood-color: var(--rippo-mood-confused); }
+.rippo-avatar--attention { --rippo-avatar-mood-color: var(--rippo-mood-attention); }
+.rippo-avatar--sorry { --rippo-avatar-mood-color: var(--rippo-mood-sorry); }
+.rippo-avatar--sleepy { --rippo-avatar-mood-color: var(--rippo-mood-sleepy); }
 
 /* 投稿ヘッダー -------------------------------------------------- */
 
