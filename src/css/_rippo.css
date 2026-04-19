@@ -25,6 +25,7 @@
   width: 4rem;
   height: 4rem;
   flex-shrink: 0;
+
   --rippo-avatar-mood-color: var(--rippo-mood-standard);
 }
 
